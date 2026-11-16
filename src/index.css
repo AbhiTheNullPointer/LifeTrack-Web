@@ -1,0 +1,211 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 
+* LIGHT THEME
+* Surfaces → clean neutral-white  |  Accent → vibrant pink
+*/
+:root {
+  /* Neutral surfaces (almost no colour tint) */
+  --md-sys-color-background: #f9f9f9;
+  --md-sys-color-surface: #f9f9f9;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f3f3f3;
+  --md-sys-color-surface-container: #eeeeee;
+  --md-sys-color-surface-container-high: #e8e8e8;
+  --md-sys-color-surface-container-highest: #e2e2e2;
+
+  /* On-surface text — near-black with neutral tint */
+  --md-sys-color-on-surface: #1a1a1a;
+  --md-sys-color-on-surface-variant: #4a4a4a;
+  --md-sys-color-outline: #767676;
+  --md-sys-color-outline-variant: #e0e0e0;
+
+  /* Primary — vivid hot pink (MD3 "Pink" key colour) */
+  --md-sys-color-primary: #c2185b;   /* deep vibrant pink  */
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #fce4ec;   /* very light pink tint  */
+  --md-sys-color-on-primary-container: #4a0020;
+
+  /* Secondary — subtle warm-pink tint on containers */
+  --md-sys-color-secondary-container: #fce4ec;
+  --md-sys-color-on-secondary-container: #3b0a1f;
+
+  /* Tertiary — complementary violet/mauve */
+  --md-sys-color-tertiary: #7b1fa2;
+  --md-sys-color-tertiary-container: #f3e5f5;
+  --md-sys-color-on-tertiary-container: #2e003e;
+
+  /* Semantic */
+  --md-sys-color-error: #b00020;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #410002;
+
+  --md-sys-color-warning: #e65100;
+  --md-sys-color-warning-container: #fff3e0;
+
+  /* Typography */
+  --font-display: 'Nunito', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+
+/*
+* DARK THEME
+* Surfaces → deep neutral-black  |  Accent → soft pastel pink
+*/
+
+.dark {
+  /* Neutral dark surfaces (pure, no tint) */
+  --md-sys-color-background: #111111;
+  --md-sys-color-surface: #111111;
+  --md-sys-color-surface-container-lowest: #1a1a1a;
+  --md-sys-color-surface-container-low: #202020;
+  --md-sys-color-surface-container: #272727;
+  --md-sys-color-surface-container-high: #2f2f2f;
+  --md-sys-color-surface-container-highest: #383838;
+
+  /* On-surface text */
+  --md-sys-color-on-surface: #e8e8e8;
+  --md-sys-color-on-surface-variant: #b0b0b0;
+  --md-sys-color-outline: #6e6e6e;
+  --md-sys-color-outline-variant: #333333;
+
+  /* Primary — pastel rose on dark bg */
+  --md-sys-color-primary: #f48fb1;   /* soft rose-pink     */
+  --md-sys-color-on-primary: #5d0028;
+  --md-sys-color-primary-container: #880e4f;   /* deep pink containe */
+  --md-sys-color-on-primary-container: #ffd9e4;
+
+  /* Secondary */
+  --md-sys-color-secondary-container: #4a1a2e;
+  --md-sys-color-on-secondary-container: #f9d0e2;
+
+  /* Tertiary */
+  --md-sys-color-tertiary: #ce93d8;
+  --md-sys-color-tertiary-container: #4a148c;
+  --md-sys-color-on-tertiary-container: #f3e5f5;
+
+  /* Semantic */
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error-container: #ffdad6;
+
+  --md-sys-color-warning: #ffb74d;
+  --md-sys-color-warning-container: #3e2000;
+}
+
+
+/* BASE STYLES */
+@layer base {
+  html,
+  body {
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-surface);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: clip;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Display headings — Nunito, slightly tight tracking */
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+
+  /* Tabular mono for dates/counts */
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Focus rings follow the primary colour */
+  :focus-visible {
+    outline: 2px solid var(--md-sys-color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+
+/*
+   UTILITY HELPERS */
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* iOS home-bar safe area */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+
+/*
+   MATERIAL 3 ELEVATION SYSTEM
+   Light: subtle cool shadow  |  Dark: stronger black shadow
+*/
+.m3-elevated-1 {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.m3-elevated-2 {
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.10),
+    0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.m3-elevated-3 {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.14),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dark .m3-elevated-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+.dark .m3-elevated-2 {
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.55),
+    0 1px 4px rgba(0, 0, 0, 0.35);
+}
+.dark .m3-elevated-3 {
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.70),
+    0 3px 10px rgba(0, 0, 0, 0.45);
+}
+
+
+/*
+   CUSTOM SCROLLBAR (desktop/pointer devices only) */
+@media (pointer: fine) {
+  ::-webkit-scrollbar       { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--md-sys-color-outline-variant);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--md-sys-color-outline);
+  }
+}
+
+
+/*
+   REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:       0.01ms !important;
+    animation-iteration-count: 1     !important;
+    transition-duration:      0.01ms !important;
+  }
+}

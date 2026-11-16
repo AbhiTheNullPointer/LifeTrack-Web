@@ -1,0 +1,6 @@
+{
+  "name": "To-Do · Life Tracker",
+  "description": "A free, beautifully designed task manager and daily planner. Organize tasks by category, set due dates, track priorities, and stay on top of your life.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
