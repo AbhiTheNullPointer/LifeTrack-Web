@@ -92,7 +92,7 @@ export function NavigationSidebar({
 
   const navContent = (
     <aside
-      className="flex flex-col h-full w-[280px] sm:w-[272px] bg-[var(--md-sys-color-surface-container-low)] border-r border-[var(--md-sys-color-outline-variant)] px-3 py-5 pb-safe select-none"
+      className="flex flex-col h-full w-[280px] sm:w-[272px] bg-[var(--md-sys-color-surface-container-low)] border-r border-[var(--md-sys-color-outline-variant)] px-3 py-5 pb-8 pb-safe select-none"
       aria-label="Task navigation"
     >
       {/* Brand Lockup */}
