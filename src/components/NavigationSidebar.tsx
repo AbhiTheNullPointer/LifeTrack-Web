@@ -295,7 +295,7 @@ export function NavigationSidebar({
       {/* Developer profile */}
       <section
         aria-label="Developer profile"
-        className="mt-4 pt-4 border-t border-[var(--md-sys-color-outline-variant)] shrink-0"
+        className="mt-4 pt-4 pb-5 border-t border-[var(--md-sys-color-outline-variant)] shrink-0"
       >
         <div className="flex items-center gap-3 px-2.5">
           <img
