@@ -4,7 +4,9 @@ import {
   CalendarRange,
   CheckCircle2,
   FolderPlus,
+  Github,
   Inbox,
+  ExternalLink,
   Star,
   Trash2,
   X,
@@ -289,6 +291,55 @@ export function NavigationSidebar({
           })}
         </div>
       </div>
+
+      {/* Developer profile */}
+      <section
+        aria-label="Developer profile"
+        className="mt-4 pt-4 border-t border-[var(--md-sys-color-outline-variant)] shrink-0"
+      >
+        <div className="flex items-center gap-3 px-2.5">
+          <img
+            src="https://avatars.githubusercontent.com/u/261731864?v=4"
+            alt="AbhiTheNullPointer"
+            loading="lazy"
+            className="w-11 h-11 rounded-full object-cover ring-2 ring-[var(--md-sys-color-outline-variant)] shrink-0"
+          />
+          <div className="min-w-0">
+            <p className="text-[11px] font-medium uppercase tracking-wider text-[var(--md-sys-color-outline)]">
+              Developer
+            </p>
+            <a
+              href="https://github.com/AbhiTheNullPointer"
+              target="_blank"
+              rel="noreferrer"
+              className="block truncate text-sm font-semibold text-[var(--md-sys-color-on-surface)] hover:text-[var(--md-sys-color-primary)] transition-colors"
+            >
+              AbhiTheNullPointer
+            </a>
+          </div>
+        </div>
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <a
+            href="https://github.com/AbhiTheNullPointer"
+            target="_blank"
+            rel="noreferrer"
+            className="h-9 px-2 rounded-xl border border-[var(--md-sys-color-outline-variant)] flex items-center justify-center gap-1.5 text-xs font-medium text-[var(--md-sys-color-on-surface-variant)] hover:bg-[var(--md-sys-color-surface-container-high)] transition-colors"
+          >
+            <Github className="w-3.5 h-3.5" aria-hidden="true" />
+            GitHub
+            <ExternalLink className="w-3 h-3 opacity-60" aria-hidden="true" />
+          </a>
+          <a
+            href="https://github.com/AbhiTheNullPointer/LifeTrack-Web"
+            target="_blank"
+            rel="noreferrer"
+            className="h-9 px-2 rounded-xl border border-[var(--md-sys-color-outline-variant)] flex items-center justify-center gap-1.5 text-xs font-medium text-[var(--md-sys-color-on-surface-variant)] hover:bg-[var(--md-sys-color-surface-container-high)] transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+            Source code
+          </a>
+        </div>
+      </section>
     </aside>
   );
 
